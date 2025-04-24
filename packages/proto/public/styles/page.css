@@ -1,0 +1,424 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background-page);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  /* Layout container */
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Header styles */
+  header {
+    background: var(--color-background-header);
+    color: var(--color-text);
+    padding: var(--spacing-large) 0;
+    position: relative;
+    overflow: hidden;
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: 20px;
+  }
+  
+  header .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  header h1 {
+    font-family: var(--font-family-headers);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: var(--color-background-nav);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--box-shadow);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--color-secondary);
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-large);
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  nav li {
+    position: relative;
+  }
+  
+  nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: var(--spacing-medium) var(--spacing-small);
+    font-weight: var(--font-weight-medium);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  
+  nav a:hover {
+    color: var(--color-secondary);
+  }
+  
+  /* Main content */
+  main {
+    padding: var(--spacing-large) 0;
+    position: relative;
+  }
+  
+  /* Sections */
+  section {
+    background-color: var(--color-background-section);
+    padding: var(--spacing-large);
+    margin: var(--spacing-large) 0;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid var(--color-secondary);
+  }
+  
+  section:nth-child(even) {
+    background-color: var(--color-background-section-alt);
+  }
+  
+  /* Typography */
+  h2 {
+    font-family: var(--font-family-headers);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--spacing-medium);
+    position: relative;
+    padding-bottom: var(--spacing-small);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+  }
+  
+  p {
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-text);
+  }
+  
+  /* Lists */
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  section ul li {
+    padding: var(--spacing-small) 0;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    padding-left: 1.8rem;
+  }
+  
+  section ul li:last-child {
+    border-bottom: none;
+  }
+  
+  section ul li::before {
+    content: "🏀";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+  }
+  
+  section ul li:hover {
+    color: var(--color-secondary);
+  }
+  
+  /* Links */
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    position: relative;
+  }
+  
+  a:hover {
+    color: var(--color-link-hover);
+  }
+  
+  /* Button styles */
+  .warriors-btn {
+    display: inline-block;
+    padding: var(--spacing-small) var(--spacing-large);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border-radius: var(--border-radius-pill);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .warriors-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary-dark);
+  }
+  
+  /* Player stats specific styling */
+  section ul li:has(strong) {
+    display: flex;
+    justify-content: space-between;
+    padding-right: var(--spacing-medium);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+      padding: var(--spacing-small) 0;
+    }
+  
+    nav {
+      height: auto;
+      position: relative;
+    }
+  
+    nav a {
+      padding: var(--spacing-small) var(--spacing-medium);
+    }
+  
+    header {
+      min-height: auto;
+      padding: var(--spacing-medium) 0;
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+  
+    header h1 {
+      font-size: calc(var(--font-size-h1) * 0.7);
+    }
+  
+    section {
+      padding: var(--spacing-medium);
+    }
+  
+    h2 {
+      font-size: calc(var(--font-size-h2) * 0.9);
+    }
+  }
+  
+  /* Warriors-specific styling */
+  .warriors-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+  }
+  
+  .stats-highlight {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+  }
+  
+  .player-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-medium);
+    background-color: rgba(29, 66, 138, 0.2);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-medium);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .player-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-secondary);
+  }
+  
+  .player-info {
+    flex: 1;
+  }
+  
+  .player-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+  
+  .player-position {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+  }
+  
+  .game-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-medium);
+    background-color: rgba(29, 66, 138, 0.2);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-medium);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .team-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .game-info {
+    text-align: center;
+  }
+  
+  .game-date {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+  
+  .game-time {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+  }
+  
+  .vs {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+  }
+  
+  /* Warriors table */
+  .warriors-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-medium) 0;
+  }
+  
+  .warriors-table th {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: var(--spacing-small) var(--spacing-medium);
+    text-align: left;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .warriors-table th:first-child {
+    border-top-left-radius: var(--border-radius);
+  }
+  
+  .warriors-table th:last-child {
+    border-top-right-radius: var(--border-radius);
+  }
+  
+  .warriors-table td {
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .warriors-table tr:nth-child(even) {
+    background-color: rgba(29, 66, 138, 0.1);
+  }
+  
+  .warriors-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .warriors-table tr:last-child td:first-child {
+    border-bottom-left-radius: var(--border-radius);
+  }
+  
+  .warriors-table tr:last-child td:last-child {
+    border-bottom-right-radius: var(--border-radius);
+  }
+  
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border-radius: var(--border-radius-pill);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary-dark);
+  }
+  
