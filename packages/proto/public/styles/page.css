@@ -16,32 +16,35 @@ body {
   min-height: 100vh;
 }
 
-/* Layout container */
 .container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-medium);
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
-  width: 100%;
-  position: relative;
+  padding: 0 var(--spacing-medium);
 }
 
 /* Header styles */
 header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-medium);
   background: var(--color-background-header);
-  color: var(--color-text);
-  padding: var(--spacing-large) 0;
-  position: relative;
-  overflow: hidden;
-  min-height: var(--header-height);
-  display: flex;
+  padding: var(--spacing-medium) var(--spacing-large);
   align-items: center;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-  margin-bottom: 20px;
+}
+
+header .icon {
+  width: 48px;
+  justify-self: end;
 }
 
 header .container {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-large);
 }
 
 header h1 {
@@ -70,27 +73,27 @@ header h1::after {
 
 /* Navigation */
 nav {
-  background-color: var(--color-background-nav);
-  padding: 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--box-shadow);
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
+  background: var(--color-background-nav);
+  width: 100%; /* Make nav background full width */
   border-bottom: 2px solid var(--color-secondary);
 }
 
+/* Keep the nav links centered within container */
+nav .container {
+  display: flex; /* Override grid from .container */
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-medium) 0;
+}
+
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   justify-content: center;
   gap: var(--spacing-large);
-  flex-wrap: wrap;
-  width: 100%;
+  width: auto; /* Override the width from .container */
 }
 
 nav li {
@@ -121,6 +124,9 @@ main {
 
 /* Sections */
 section {
+  grid-column: span 12; /* Full width by default */
+  display: grid;
+  gap: var(--spacing-medium);
   background-color: var(--color-background-section);
   padding: var(--spacing-large);
   margin: var(--spacing-large) 0;
@@ -237,20 +243,38 @@ section ul li:has(strong) {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  section {
+    grid-column: span 8;
+  }
+}
+
 @media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-small);
+  }
+
+  section {
+    grid-column: span 4;
+  }
+
+  header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  header .icon {
+    justify-self: center;
+  }
+
   nav ul {
     flex-direction: column;
-    align-items: center;
-    padding: var(--spacing-small) 0;
-  }
-
-  nav {
-    height: auto;
-    position: relative;
-  }
-
-  nav a {
-    padding: var(--spacing-small) var(--spacing-medium);
+    gap: var(--spacing-small);
   }
 
   header {
@@ -288,9 +312,10 @@ section ul li:has(strong) {
 }
 
 .player-card {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: var(--spacing-medium);
+  align-items: center;
   padding: var(--spacing-medium);
   background-color: rgba(29, 66, 138, 0.2);
   border-radius: var(--border-radius);
@@ -323,8 +348,9 @@ section ul li:has(strong) {
 }
 
 .game-card {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-medium);
   align-items: center;
   padding: var(--spacing-medium);
   background-color: rgba(29, 66, 138, 0.2);
@@ -423,9 +449,36 @@ section ul li:has(strong) {
 }
 
 .icon {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   fill: var(--color-text);
   vertical-align: middle;
   margin-right: var(--spacing-small);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

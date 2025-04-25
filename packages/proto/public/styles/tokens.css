@@ -57,4 +57,14 @@
   --container-padding: var(--spacing-medium);
   --header-height: 180px;
   --nav-height: 60px;
+
+  /* Layout tokens */
+  --grid-columns-desktop: 12;
+  --grid-columns-tablet: 8;
+  --grid-columns-mobile: 4;
+  --grid-gap: var(--spacing-medium);
+
+  /* Breakpoints */
+  --breakpoint-tablet: 1200px;
+  --breakpoint-mobile: 768px;
 }
