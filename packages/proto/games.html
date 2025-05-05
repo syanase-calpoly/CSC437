@@ -3,39 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Stats</title>
+    <title>Warriors Games</title>
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <script src="/scripts/dark-mode.js"></script>
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { WarriorsNavElement } from "/src/nav-bar.js";
+
+      define({
+        "warriors-nav": WarriorsNavElement
+      });
+    </script>
   </head>
   <body>
     <header>
       <div class="container">
         <svg class="icon">
-          <use href="/icons/basketball.svg#icon-stats" />
+          <use href="/icons/basketball.svg#icon-court" />
         </svg>
-        <h1>Team Statistics</h1>
+        <h1>Warriors Games</h1>
       </div>
     </header>
 
-    <nav>
-      <div class="container">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="warriors.html">Warriors Overview</a></li>
-          <li><a href="players.html">Warrior Players</a></li>
-          <li><a href="games.html">Games</a></li>
-          <li><a href="standings.html">NBA Standings</a></li>
-        </ul>
-      </div>
-    </nav>
+    <warriors-nav active-page="games"></warriors-nav>
 
     <main>
       <div class="container">
         <section>
-          <h2>Season Performance</h2>
+          <h2>Upcoming Games</h2>
           <ul>
-            <li>Win Percentage: 55%</li>
+            <li>Warriors vs Lakers</li>
+            <li>Bucks vs Warriors</li>
+            <li>Celtics vs Warriors</li>
           </ul>
         </section>
       </div>
