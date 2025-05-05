@@ -6,22 +6,27 @@
   --color-accent: #ffffff; /* White */
   --color-dark: #1a1a1a; /* Dark background */
 
+  /* LIGHT THEME (DEFAULT) COLORS */
   /* Background Colors */
-  --color-background-page: #0f1525;
+  --color-background-page: #f5f8ff;
   --color-background-header: var(--color-primary);
-  --color-background-nav: #0a1020;
-  --color-background-section: #1a2235;
-  --color-background-section-alt: #1e2840;
+  --color-background-nav: #e0e5f5;
+  --color-background-section: #ffffff;
+  --color-background-section-alt: #f0f4ff;
 
   /* Text Colors */
-  --color-text: #ffffff;
-  --color-text-muted: #a0a8c0;
-  --color-link: var(--color-secondary);
-  --color-link-hover: #ffffff;
+  --color-text: #0a1020;
+  --color-text-muted: #4a5573;
+  --color-link: #1d428a; /* Warriors blue */
+  --color-link-hover: #0a2050; /* Darker blue */
 
   /* Borders & Accents */
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(0, 0, 0, 0.1);
   --color-border-accent: var(--color-secondary);
+
+  /* Shadows */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
 
   /* Typography */
   --font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -49,8 +54,6 @@
   --border-radius-lg: 12px;
   --border-radius-pill: 50px;
   --border-width: 1px;
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
 
   /* Layout */
   --container-max-width: 1200px;
@@ -67,4 +70,87 @@
   /* Breakpoints */
   --breakpoint-tablet: 1200px;
   --breakpoint-mobile: 768px;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  /* DARK THEME COLORS */
+  /* Background Colors */
+  --color-background-page: #0f1525;
+  --color-background-header: var(--color-primary);
+  --color-background-nav: #0a1020;
+  --color-background-section: #1a2235;
+  --color-background-section-alt: #1e2840;
+
+  /* Text Colors */
+  --color-text: #ffffff;
+  --color-text-muted: #a0a8c0;
+  --color-link: var(--color-secondary);
+  --color-link-hover: #ffffff;
+
+  /* Borders & Accents */
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Adjust shadows for dark mode */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Navbar styling for light mode (default) */
+nav {
+  background-color: var(--color-background-nav);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+nav a {
+  color: var(--color-primary); /* Dark text in light mode */
+}
+
+nav a:hover {
+  color: var(--color-secondary);
+}
+
+/* Dark mode overrides for navbar */
+body.dark-mode nav a {
+  color: var(--color-text); /* White text in dark mode */
+}
+
+/* Special overrides for header text */
+header h1 {
+  color: var(--color-accent); /* Keep header text white in both modes */
+}
+
+/* Dark mode toggle styling */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  cursor: pointer;
+  color: var(--color-accent);
+  font-size: var(--font-size-small);
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius-pill);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle input {
+  margin: 0;
+}
+
+/* Add smooth transitions for color changes */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav,
+header,
+section,
+a,
+p,
+h1,
+h2,
+h3 {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
