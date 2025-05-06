@@ -4,7 +4,6 @@ import reset from "./styles/reset.css.ts"
 
 
 export class WarriorsNavElement extends LitElement {
-  @property({ attribute: "active-page" })
 
   activePage?: string
 
