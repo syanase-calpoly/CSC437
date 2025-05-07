@@ -14,12 +14,13 @@
     />
     <script src="/scripts/dark-mode.js"></script>
     <script type="module">
-      import { define } from "@calpoly/mustang";
       import { WarriorsNavElement } from "/src/nav-bar.js";
+      import { PlayerCardElement } from "/src/player-card.js";
+      import { PlayerRoster } from "/src/player-roster.js";
 
-      define({
-        "warriors-nav": WarriorsNavElement
-      });
+      customElements.define("warriors-nav", WarriorsNavElement);
+      customElements.define("player-card", PlayerCardElement);
+      customElements.define("player-roster", PlayerRoster);
     </script>
   </head>
   <body>
@@ -38,11 +39,7 @@
       <div class="container">
         <section>
           <h2>Current Roster</h2>
-          <ul>
-            <li>Stephen Curry</li>
-            <li>Jimmy Butler</li>
-            <li>Draymond Green</li>
-          </ul>
+          <player-roster src="/data/players.json"></player-roster>
           <p><a href="playerstats.html">View Player Stats →</a></p>
         </section>
       </div>

@@ -4,7 +4,7 @@ import reset from "./styles/reset.css.ts"
 
 
 export class WarriorsNavElement extends LitElement {
-
+  @property()
   activePage?: string
 
   override render() {
