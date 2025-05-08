@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warriors Players</title>
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/scripts/dark-mode.js"></script>
+    <script type="module" crossorigin src="/assets/players-aHoShJO4.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/nav-bar-bO1PnE02.js">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <svg class="icon">
+          <use href="/icons/basketball.svg#icon-player" />
+        </svg>
+        <h1>Warriors Players</h1>
+      </div>
+    </header>
+
+    <warriors-nav active-page="players"></warriors-nav>
+
+    <main>
+      <div class="container">
+        <section>
+          <h2>Current Roster</h2>
+          <player-roster src="/data/players.json"></player-roster>
+          <p><a href="playerstats.html">View Player Stats →</a></p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

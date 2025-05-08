@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Stephen Curry",
+      "playerImg": "/public/images/steph.webp",
+      "position": "Point Guard",
+      "number": "30",
+      "stats": "25.9ppg, 6apg, 7rpg",
+      "bio": "Stephen Curry is a point guard for the Golden State Warriors."
+    },
+    {
+      "name": "Jimmy Butler",
+      "playerImg": "/public/images/jimmy.png",
+      "position": "Small Forward",
+      "number": "10",
+      "stats": "18.9ppg, 8apg, 9rpg",
+      "bio": "Jimmy Buttler is a small forward for the Golden State Warriors."
+    },
+    {
+      "name": "Draymond Green",
+      "playerImg": "/public/images/dray.avif",
+      "position": "Power Forward",
+      "number": "23",
+      "stats": "8.9ppg, 10apg, 9rpg",
+      "bio": "Draymond Green is a power forward for the Golden State Warriors."
+    }
+  ]
