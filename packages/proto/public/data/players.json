@@ -1,7 +1,7 @@
 [
     {
       "name": "Stephen Curry",
-      "playerImg": "./images/steph.webp",
+      "playerImg": "/images/steph.webp",
       "position": "Point Guard",
       "number": "30",
       "stats": "25.9ppg, 6apg, 7rpg",
@@ -9,7 +9,7 @@
     },
     {
       "name": "Jimmy Butler",
-      "playerImg": "./images/jimmy.png",
+      "playerImg": "/images/jimmy.png",
       "position": "Small Forward",
       "number": "10",
       "stats": "18.9ppg, 8apg, 9rpg",
@@ -17,7 +17,7 @@
     },
     {
       "name": "Draymond Green",
-      "playerImg": "./images/dray.avif",
+      "playerImg": "/images/dray.avif",
       "position": "Power Forward",
       "number": "23",
       "stats": "8.9ppg, 10apg, 9rpg",
