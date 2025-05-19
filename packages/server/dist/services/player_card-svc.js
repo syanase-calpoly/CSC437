@@ -43,4 +43,23 @@ function get(playerid) {
     throw `${playerid} Not Found`;
   });
 }
-var player_card_svc_default = { index, get };
+function create(json) {
+  const t = new PlayerModel(json);
+  return t.save();
+}
+function update(playerid, player) {
+  return PlayerModel.findOneAndUpdate({ playerid }, player, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${playerid} not updated`;
+    else return updated;
+  });
+}
+function remove(playerid) {
+  return PlayerModel.findOneAndDelete({ playerid }).then(
+    (deleted) => {
+      if (!deleted) throw `${playerid} not deleted`;
+    }
+  );
+}
+var player_card_svc_default = { index, get, create, update, remove };
