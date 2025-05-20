@@ -25,13 +25,15 @@ var import_express = __toESM(require("express"));
 var import_player_card_svc = __toESM(require("./services/player_card-svc"));
 var import_mongo = require("./services/mongo");
 var import_players = __toESM(require("./routes/players"));
+var import_auth = __toESM(require("./routes/auth"));
 (0, import_mongo.connect)("blazing");
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
-app.use("/api/players", import_players.default);
+app.use("/api/players", import_auth.authenticateUser, import_players.default);
+app.use("/auth", import_auth.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

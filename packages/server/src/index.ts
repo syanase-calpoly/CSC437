@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import Players from "./services/player_card-svc";
 import { connect } from "./services/mongo";
 import players from "./routes/players";
+import auth, { authenticateUser } from "./routes/auth";
 
 connect("blazing");
 
@@ -12,12 +13,11 @@ const staticDir = process.env.STATIC || "public";
 
 app.use(express.static(staticDir));
 app.use(express.json());
-app.use("/api/players", players);
-
-
+app.use("/api/players", authenticateUser, players);
+app.use("/auth", auth);
 
 app.get("/hello", (req: Request, res: Response) => {
-    res.send("Hello, World");
+  res.send("Hello, World");
 });
 
 app.get("/player", async (req: Request, res: Response) => {
