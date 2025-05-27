@@ -12,39 +12,47 @@
     />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script src="/scripts/dark-mode.js"></script>
     <script type="module">
-      import { define } from "@calpoly/mustang";
+      import { define, Auth } from "@calpoly/mustang";
       import { WarriorsNavElement } from "/src/nav-bar.js";
+      import { HeaderElement } from "/src/header.js";
 
       define({
-        "warriors-nav": WarriorsNavElement
+        "warriors-nav": WarriorsNavElement,
+        "warriors-header": HeaderElement,
+        "mu-auth": Auth.Provider
       });
+
     </script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <svg class="icon">
-          <use href="/icons/basketball.svg#icon-basketball" />
-        </svg>
-        <h1>Golden State Warriors</h1>
-      </div>
-    </header>
+    <mu-auth provides="warriors:auth">
 
-    <warriors-nav active-page="home"></warriors-nav>
+      <warriors-header>
+        <div class="container">
+          <svg class="icon">
+            <use href="/icons/basketball.svg#icon-basketball" />
+          </svg>
+          <h1>Golden State Warriors</h1>
+        </div>
+      </warriors-header>
 
-    <main>
-      <div class="container">
-        <section>
-          <h2>Welcome to Warriors Nation</h2>
-          <p>
-            Your ultimate destination for everything Golden State Warriors.
-            Explore our team's history, current roster, statistics, and more.
-          </p>
-          <a href="warriors.html" class="warriors-btn">Explore More</a>
-        </section>
-      </div>
-    </main>
+      <warriors-nav active-page="home"></warriors-nav>
+
+      <main>
+        <div class="container">
+          <section>
+            <h2>Welcome to Warriors Nation</h2>
+            <p>
+              Your ultimate destination for everything Golden State Warriors.
+              Explore our team's history, current roster, statistics, and more.
+            </p>
+            <a href="warriors.html" class="warriors-btn">Explore More</a>
+          </section>
+        </div>
+      </main>
+    </mu-auth>
+    <script src="/scripts/dark-mode.js"></script>
+
   </body>
 </html>

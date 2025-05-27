@@ -20,7 +20,7 @@
 
       customElements.define("warriors-nav", WarriorsNavElement);
       customElements.define("player-card", PlayerCardElement);
-      customElements.define("player-roster", PlayerRoster);
+      //customElements.define("player-roster", PlayerRoster);
     </script>
   </head>
   <body>
@@ -39,8 +39,8 @@
       <div class="container">
         <section>
           <h2>Current Roster</h2>
-          <player-roster src="/data/players.json"></player-roster>
-          <p><a href="playerstats.html">View Player Stats →</a></p>
+          <player-roster src="http://localhost:3000/player"></player-roster>
+          <p><a href="playerstats.html">View Player stats →</a></p>
         </section>
       </div>
     </main>

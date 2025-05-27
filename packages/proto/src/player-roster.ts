@@ -1,5 +1,5 @@
-import { LitElement, html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { LitElement, html } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 
 interface Player {
   name: string;
@@ -10,7 +10,7 @@ interface Player {
   bio: string;
 }
 
-@customElement('player-roster')
+@customElement("player-roster")
 export class PlayerRoster extends LitElement {
   @property()
   src?: string;
@@ -27,7 +27,9 @@ export class PlayerRoster extends LitElement {
     const res = await fetch(src);
     if (res.ok) {
       const json = await res.json();
+      console.log("Fetched players:", json); // Add this
       this.players = json as Player[];
+      console.log("here now", this.players);
     }
   }
 
@@ -48,11 +50,12 @@ export class PlayerRoster extends LitElement {
   }
 
   render() {
+    console.log("Rendering players:", this.players);
     return html`
       <section>
         <h2>Current Roster</h2>
         <ul>
-          ${this.players.map(p => this.renderPlayer(p))}
+          ${this.players.map((p) => this.renderPlayer(p))}
         </ul>
         <p><a href="playerstats.html">View Player Stats →</a></p>
       </section>
