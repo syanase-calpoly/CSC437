@@ -1,21 +1,21 @@
-var y=Object.defineProperty;var g=(a,r,e)=>r in a?y(a,r,{enumerable:!0,configurable:!0,writable:!0,value:e}):a[r]=e;var t=(a,r,e)=>g(a,typeof r!="symbol"?r+"":r,e);import{i as m,x as o,r as h,a as v,n as f}from"./reset.css-CZfO2Pde.js";import{W as u}from"./nav-bar-aKzB4Al5.js";import{r as b}from"./state-B593l9wF.js";/**
+var y=Object.defineProperty;var g=(t,r,e)=>r in t?y(t,r,{enumerable:!0,configurable:!0,writable:!0,value:e}):t[r]=e;var a=(t,r,e)=>g(t,typeof r!="symbol"?r+"":r,e);import{i as m,x as i,r as v,a as h,n as f}from"./reset.css-CZfO2Pde.js";import{W as u}from"./nav-bar-aKzB4Al5.js";import{r as b}from"./state-B593l9wF.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const x=a=>(r,e)=>{e!==void 0?e.addInitializer(()=>{customElements.define(a,r)}):customElements.define(a,r)};class c extends m{constructor(){super(...arguments);t(this,"playerImg","/placeholder.svg?height=60&width=60");t(this,"position");t(this,"number");t(this,"stats");t(this,"bio")}render(){return o`
+ */const x=t=>(r,e)=>{e!==void 0?e.addInitializer(()=>{customElements.define(t,r)}):customElements.define(t,r)};class d extends m{constructor(){super(...arguments);a(this,"playerImg","/placeholder.svg?height=60&width=60");a(this,"position");a(this,"number");a(this,"stats");a(this,"bio")}render(){return i`
       <div class="player-card">
         <img src="${this.playerImg}" alt="Player" />
         <div class="player-info">
           <div class="player-name">
             <slot></slot>
-            ${this.number?o`<span class="player-number">#${this.number}</span>`:""}
+            ${this.number?i`<span class="player-number">#${this.number}</span>`:""}
           </div>
           <div class="player-position">${this.position}</div>
-          ${this.stats?o`<div class="player-stats">${this.stats}</div>`:""}
-          ${this.bio?o`<div class="player-bio">${this.bio}</div>`:""}
+          ${this.stats?i`<div class="player-stats">${this.stats}</div>`:""}
+          ${this.bio?i`<div class="player-bio">${this.bio}</div>`:""}
         </div>
       </div>
-    `}}t(c,"properties",{playerImg:{type:String,attribute:"player-img"},position:{type:String},number:{type:Number},stats:{type:String},bio:{type:String}}),t(c,"styles",[h.styles,v`
+    `}}a(d,"properties",{playerImg:{type:String,attribute:"player-img"},position:{type:String},number:{type:Number},stats:{type:String},bio:{type:String}}),a(d,"styles",[v.styles,h`
       .player-card {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -97,7 +97,7 @@ var y=Object.defineProperty;var g=(a,r,e)=>r in a?y(a,r,{enumerable:!0,configura
           justify-content: center;
         }
       }
-    `]);var w=Object.defineProperty,$=Object.getOwnPropertyDescriptor,d=(a,r,e,s)=>{for(var i=s>1?void 0:s?$(r,e):r,n=a.length-1,p;n>=0;n--)(p=a[n])&&(i=(s?p(r,e,i):p(i))||i);return s&&i&&w(r,e,i),i};let l=class extends m{constructor(){super(...arguments);t(this,"src");t(this,"players",[])}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src),this.requestUpdate()}async hydrate(r){const e=await fetch(r);if(e.ok){const s=await e.json();console.log("Fetched players:",s),this.players=s,console.log("here now",this.players)}}renderPlayer(r){return o`
+    `]);var w=Object.defineProperty,$=Object.getOwnPropertyDescriptor,c=(t,r,e,o)=>{for(var s=o>1?void 0:o?$(r,e):r,n=t.length-1,p;n>=0;n--)(p=t[n])&&(s=(o?p(r,e,s):p(s))||s);return o&&s&&w(r,e,s),s};let l=class extends m{constructor(){super(...arguments);a(this,"src");a(this,"players",[])}async firstUpdated(){if(console.log("FirstUpdated called"),this.src){const r=await fetch(this.src);if(r.ok){const e=await r.json();console.log("fetched players:",e),this.players=[...e],this.requestUpdate()}}}renderPlayer(r){return i`
       <li>
         <player-card
           player-img=${r.playerImg}
@@ -109,7 +109,7 @@ var y=Object.defineProperty;var g=(a,r,e)=>r in a?y(a,r,{enumerable:!0,configura
           ${r.name}
         </player-card>
       </li>
-    `}render(){return console.log("Rendering players:",this.players),o`
+    `}render(){return console.log("Rendering players:",this.players),i`
       <section>
         <h2>Current Roster</h2>
         <ul>
@@ -117,4 +117,4 @@ var y=Object.defineProperty;var g=(a,r,e)=>r in a?y(a,r,{enumerable:!0,configura
         </ul>
         <p><a href="playerstats.html">View Player Stats →</a></p>
       </section>
-    `}};d([f()],l.prototype,"src",2);d([b()],l.prototype,"players",2);l=d([x("player-roster")],l);customElements.define("warriors-nav",u);customElements.define("player-card",c);
+    `}};c([f()],l.prototype,"src",2);c([b()],l.prototype,"players",2);l=c([x("player-roster")],l);customElements.define("warriors-nav",u);customElements.define("player-card",d);

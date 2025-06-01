@@ -8,6 +8,8 @@ interface Player {
   number: string;
   stats: string;
   bio: string;
+  playerid: string;
+  _id: string;
 }
 
 @customElement("player-roster")
@@ -18,20 +20,18 @@ export class PlayerRoster extends LitElement {
   @state()
   players: Player[] = [];
 
-  connectedCallback() {
-    super.connectedCallback();
-    if (this.src) this.hydrate(this.src);
-  }
-
-  async hydrate(src: string) {
-    const res = await fetch(src);
+  override async firstUpdated() {
+  console.log("FirstUpdated called");
+  if (this.src) {
+    const res = await fetch(this.src);
     if (res.ok) {
       const json = await res.json();
-      console.log("Fetched players:", json); // Add this
-      this.players = json as Player[];
-      console.log("here now", this.players);
+      console.log("fetched players:", json);
+      this.players = [...(json as Player[])];  // <-- key change here
+      this.requestUpdate();
     }
   }
+}
 
   renderPlayer(p: Player) {
     return html`
