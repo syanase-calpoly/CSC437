@@ -1,9 +1,23 @@
-import { html, LitElement, css } from "lit"
-import { state } from "lit/decorators.js"
-import { type Auth, Observer, Events } from "@calpoly/mustang"
-
-export class HeaderElement extends LitElement {
-  static styles = css`
+var u=Object.defineProperty;var p=(r,e,t)=>e in r?u(r,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):r[e]=t;var n=(r,e,t)=>p(r,typeof e!="symbol"?e+"":e,t);import{i as m,a as c,x as l}from"./reset.css-CZfO2Pde.js";import{O as f,e as b,d as v,a as x}from"./mustang-B-s5d2MX.js";import{W as w}from"./nav-bar-aKzB4Al5.js";import{r as h}from"./state-B593l9wF.js";var k=Object.defineProperty,g=(r,e,t,a)=>{for(var i=void 0,s=r.length-1,d;s>=0;s--)(d=r[s])&&(i=d(e,t,i)||i);return i&&k(e,t,i),i};class o extends m{constructor(){super(...arguments);n(this,"_authObserver",new f(this,"warriors:auth"));n(this,"loggedIn",!1);n(this,"userid")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(t=>{const{user:a}=t;console.log("User:",a),a&&a.authenticated?(console.log("authenticated"),this.loggedIn=!0,this.userid=a.username,console.log("User ID:",this.userid)):(this.loggedIn=!1,this.userid=void 0),this.requestUpdate()})}renderSignInButton(){return l`
+      <a href="/login.html" class="auth-link">Sign In…</a>
+    `}renderSignOutButton(){return l`
+      <button
+        @click=${t=>b.relay(t,"auth:message",["auth/signout"])}
+        class="auth-btn"
+      >
+        Sign Out
+      </button>
+    `}render(){return console.log("loggedIn?",this.loggedIn),l`
+      <header class="header-bar">
+        <div class="left">
+          <slot></slot>
+        </div>
+        <div class="right">
+          <span>Hello, ${this.userid||"user"}</span>
+          ${this.loggedIn?this.renderSignOutButton():this.renderSignInButton()}
+        </div>
+      </header>
+    `}}n(o,"styles",c`
     .header-bar {
       display: flex;
       justify-content: space-between;
@@ -110,62 +124,4 @@ export class HeaderElement extends LitElement {
         font-size: 0.85rem;
       }
     }
-  `
-
-  _authObserver = new Observer<Auth.Model>(this, "warriors:auth")
-
-  @state() loggedIn = false
-  @state() userid?: string
-
-  connectedCallback() {
-    super.connectedCallback()
-
-    this._authObserver.observe((auth: Auth.Model) => {
-      const { user } = auth
-      console.log("User:", user)
-
-      if (user && user.authenticated) {
-        console.log("authenticated")
-        this.loggedIn = true
-        this.userid = user.username
-        console.log("User ID:", this.userid)
-      } else {
-        this.loggedIn = false
-        this.userid = undefined
-      }
-      this.requestUpdate()
-    })
-  }
-
-  renderSignInButton() {
-    return html`
-      <a href="/login.html" class="auth-link">Sign In…</a>
-    `
-  }
-
-  renderSignOutButton() {
-    return html`
-      <button
-        @click=${(e: UIEvent) => Events.relay(e, "auth:message", ["auth/signout"])}
-        class="auth-btn"
-      >
-        Sign Out
-      </button>
-    `
-  }
-
-  override render() {
-    console.log("loggedIn?", this.loggedIn)
-    return html`
-      <header class="header-bar">
-        <div class="left">
-          <slot></slot>
-        </div>
-        <div class="right">
-          <span>Hello, ${this.userid || "user"}</span>
-          ${this.loggedIn ? this.renderSignOutButton() : this.renderSignInButton()}
-        </div>
-      </header>
-    `
-  }
-}
+  `);g([h()],o.prototype,"loggedIn");g([h()],o.prototype,"userid");v({"warriors-nav":w,"warriors-header":o,"mu-auth":x.Provider});

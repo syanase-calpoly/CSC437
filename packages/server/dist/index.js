@@ -26,6 +26,8 @@ var import_player_card_svc = __toESM(require("./services/player_card-svc"));
 var import_mongo = require("./services/mongo");
 var import_players = __toESM(require("./routes/players"));
 var import_auth = __toESM(require("./routes/auth"));
+var import_promises = __toESM(require("node:fs/promises"));
+var import_path = __toESM(require("path"));
 (0, import_mongo.connect)("blazing");
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
@@ -34,6 +36,12 @@ app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
 app.use("/api/players", import_auth.authenticateUser, import_players.default);
 app.use("/auth", import_auth.default);
+app.use("/app", (req, res) => {
+  const indexHtml = import_path.default.resolve(staticDir, "index.html");
+  import_promises.default.readFile(indexHtml, { encoding: "utf8" }).then(
+    (html) => res.send(html)
+  );
+});
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

@@ -235,6 +235,7 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+
 /* Player stats specific styling */
 section ul li:has(strong) {
   display: flex;
@@ -449,8 +450,8 @@ section ul li:has(strong) {
 }
 
 .icon {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height:100%;
   fill: var(--color-text);
   vertical-align: middle;
   margin-right: var(--spacing-small);
@@ -481,4 +482,23 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+warriors-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-large);
+  height: 140px; /* Increased height for a taller header */
+  padding-left: var(--spacing-large); /* Optional: add padding for spacing */
+  padding-right: var(--spacing-large); /* Optional: add padding for spacing */
+}
+
+warriors-header h1 {
+  text-align: left;
+  margin-left: 0; 
+  margin-right: var(--spacing-large); /* Optional: space from next item */
+  font-size: 2.8rem; 
+  line-height: 1;   
+  align-self: center; 
 }

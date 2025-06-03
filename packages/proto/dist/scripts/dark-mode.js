@@ -19,7 +19,7 @@ function relayEvent(originalEvent, newEventType, detail) {
   // Wait for the DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", () => {
     // Find the header element to add our dark mode toggle
-    const header = document.querySelector("header .container")
+    const header = document.querySelector("warriors-header .container")
   
     // Create a label element to wrap the checkbox
     const darkModeLabel = document.createElement("label")
