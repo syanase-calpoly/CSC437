@@ -1,6 +1,9 @@
 import { html, css, LitElement } from "lit"
 import reset from "../styles/reset.css.ts"
+import { customElement } from "lit/decorators.js";
 
+
+@customElement("player-card")
 export class PlayerCardElement extends LitElement {
   static properties = {
     playerImg: { type: String, attribute: "player-img" },

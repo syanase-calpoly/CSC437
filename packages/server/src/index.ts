@@ -28,7 +28,7 @@ app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");
 });
 
-app.get("/player", async (req: Request, res: Response) => {
+app.get("/api/player", async (req: Request, res: Response) => {
   try {
     const players = await Players.index();
     res.json(players);
@@ -37,7 +37,7 @@ app.get("/player", async (req: Request, res: Response) => {
   }
 });
 
-app.get("/player/:playerid", (req: Request, res: Response) => {
+app.get("/api/player/:playerid", (req: Request, res: Response) => {
   const { playerid } = req.params;
 
   Players.get(playerid).then((data) => {

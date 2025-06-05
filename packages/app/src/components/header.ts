@@ -2,6 +2,7 @@ import { html, LitElement, css } from "lit"
 import { state } from "lit/decorators.js"
 import { type Auth, Observer, Events } from "@calpoly/mustang"
 
+
 export class HeaderElement extends LitElement {
   static styles = css`
     .header-bar {

@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
-//import "./components/player-card.ts";
+import "../components/player-card.ts";
 
 interface Player {
   name: string;

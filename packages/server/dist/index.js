@@ -45,7 +45,7 @@ app.use("/app", (req, res) => {
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });
-app.get("/player", async (req, res) => {
+app.get("/api/player", async (req, res) => {
   try {
     const players2 = await import_player_card_svc.default.index();
     res.json(players2);
@@ -53,7 +53,7 @@ app.get("/player", async (req, res) => {
     res.status(500).send("Error fetching players");
   }
 });
-app.get("/player/:playerid", (req, res) => {
+app.get("/api/player/:playerid", (req, res) => {
   const { playerid } = req.params;
   import_player_card_svc.default.get(playerid).then((data) => {
     if (data) {
