@@ -17,21 +17,29 @@
       import { WarriorsNavElement } from "/src/nav-bar.js";
       import { PlayerCardElement } from "/src/player-card.js";
       import { PlayerRoster } from "/src/player-roster.js";
+      import { HeaderElement } from "/src/header.js";
+      import { define, Auth } from "@calpoly/mustang";
 
       customElements.define("warriors-nav", WarriorsNavElement);
       customElements.define("player-card", PlayerCardElement);
+      define({
+        "warriors-nav": WarriorsNavElement,
+        "warriors-header": HeaderElement,
+        "mu-auth": Auth.Provider
+      });
       //customElements.define("player-roster", PlayerRoster);
     </script>
   </head>
   <body>
-    <header>
+    <mu-auth provides="warriors:auth">
+    <warriors-header >
       <div class="container">
         <svg class="icon">
           <use href="/icons/basketball.svg#icon-player" />
         </svg>
         <h1>Warriors Players</h1>
       </div>
-    </header>
+    </warriors-header>
 
     <warriors-nav active-page="players"></warriors-nav>
 
@@ -39,10 +47,11 @@
       <div class="container">
         <section>
           <h2>Current Roster</h2>
-          <player-roster src="http://localhost:3000/player"></player-roster>
+          <player-roster src="http://localhost:3000/api/player"></player-roster>
           <p><a href="playerstats.html">View Player stats →</a></p>
         </section>
       </div>
     </main>
+    </mu-auth>
   </body>
 </html>

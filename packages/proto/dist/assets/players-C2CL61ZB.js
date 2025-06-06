@@ -1,8 +1,8 @@
-var y=Object.defineProperty;var g=(t,r,e)=>r in t?y(t,r,{enumerable:!0,configurable:!0,writable:!0,value:e}):t[r]=e;var a=(t,r,e)=>g(t,typeof r!="symbol"?r+"":r,e);import{i as m,x as i,r as v,a as h,n as f}from"./reset.css-CZfO2Pde.js";import{W as u}from"./nav-bar-aKzB4Al5.js";import{r as b}from"./state-B593l9wF.js";/**
+var g=Object.defineProperty;var v=(a,r,e)=>r in a?g(a,r,{enumerable:!0,configurable:!0,writable:!0,value:e}):a[r]=e;var s=(a,r,e)=>v(a,typeof r!="symbol"?r+"":r,e);import{i as m,x as i,r as h,b as f,c as u,n as b,d as x,a as w}from"./reset.css-B_wKpHQb.js";import{W as y,H as $}from"./header-D-8JC5ve.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const x=t=>(r,e)=>{e!==void 0?e.addInitializer(()=>{customElements.define(t,r)}):customElements.define(t,r)};class d extends m{constructor(){super(...arguments);a(this,"playerImg","/placeholder.svg?height=60&width=60");a(this,"position");a(this,"number");a(this,"stats");a(this,"bio")}render(){return i`
+ */const z=a=>(r,e)=>{e!==void 0?e.addInitializer(()=>{customElements.define(a,r)}):customElements.define(a,r)};class d extends m{constructor(){super(...arguments);s(this,"playerImg","/placeholder.svg?height=60&width=60");s(this,"position");s(this,"number");s(this,"stats");s(this,"bio")}render(){return i`
       <div class="player-card">
         <img src="${this.playerImg}" alt="Player" />
         <div class="player-info">
@@ -15,7 +15,7 @@ var y=Object.defineProperty;var g=(t,r,e)=>r in t?y(t,r,{enumerable:!0,configura
           ${this.bio?i`<div class="player-bio">${this.bio}</div>`:""}
         </div>
       </div>
-    `}}a(d,"properties",{playerImg:{type:String,attribute:"player-img"},position:{type:String},number:{type:Number},stats:{type:String},bio:{type:String}}),a(d,"styles",[v.styles,h`
+    `}}s(d,"properties",{playerImg:{type:String,attribute:"player-img"},position:{type:String},number:{type:Number},stats:{type:String},bio:{type:String}}),s(d,"styles",[h.styles,f`
       .player-card {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -97,7 +97,7 @@ var y=Object.defineProperty;var g=(t,r,e)=>r in t?y(t,r,{enumerable:!0,configura
           justify-content: center;
         }
       }
-    `]);var w=Object.defineProperty,$=Object.getOwnPropertyDescriptor,c=(t,r,e,o)=>{for(var s=o>1?void 0:o?$(r,e):r,n=t.length-1,p;n>=0;n--)(p=t[n])&&(s=(o?p(r,e,s):p(s))||s);return o&&s&&w(r,e,s),s};let l=class extends m{constructor(){super(...arguments);a(this,"src");a(this,"players",[])}async firstUpdated(){if(console.log("FirstUpdated called"),this.src){const r=await fetch(this.src);if(r.ok){const e=await r.json();console.log("fetched players:",e),this.players=[...e],this.requestUpdate()}}}renderPlayer(r){return i`
+    `]);var P=Object.defineProperty,j=Object.getOwnPropertyDescriptor,c=(a,r,e,o)=>{for(var t=o>1?void 0:o?j(r,e):r,n=a.length-1,p;n>=0;n--)(p=a[n])&&(t=(o?p(r,e,t):p(t))||t);return o&&t&&P(r,e,t),t};let l=class extends m{constructor(){super(...arguments);s(this,"src");s(this,"players",[])}async firstUpdated(){if(console.log("FirstUpdated called"),this.src){const r=await fetch(this.src);if(r.ok){const e=await r.json();console.log("fetched players:",e),this.players=[...e],this.requestUpdate()}}}renderPlayer(r){return i`
       <li>
         <player-card
           player-img=${r.playerImg}
@@ -117,4 +117,4 @@ var y=Object.defineProperty;var g=(t,r,e)=>r in t?y(t,r,{enumerable:!0,configura
         </ul>
         <p><a href="playerstats.html">View Player Stats →</a></p>
       </section>
-    `}};c([f()],l.prototype,"src",2);c([b()],l.prototype,"players",2);l=c([x("player-roster")],l);customElements.define("warriors-nav",u);customElements.define("player-card",d);
+    `}};c([b()],l.prototype,"src",2);c([u()],l.prototype,"players",2);l=c([z("player-roster")],l);customElements.define("warriors-nav",y);customElements.define("player-card",d);x({"warriors-nav":y,"warriors-header":$,"mu-auth":w.Provider});

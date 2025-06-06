@@ -13,7 +13,6 @@ export class HeaderElement extends LitElement {
       color: white;
       font-family: 'Inter', 'Roboto', sans-serif;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      position: sticky;
       top: 0;
       z-index: 100;
     }
