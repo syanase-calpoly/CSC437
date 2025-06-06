@@ -16,6 +16,7 @@ export default defineConfig({
         teamstats: resolve(__dirname, "teamstats.html"),
         warriors: resolve(__dirname, "warriors.html"),
         login: resolve(__dirname, "login.html"),
+        player: resolve(__dirname, "player.html"),
       },
     },
     // server: {

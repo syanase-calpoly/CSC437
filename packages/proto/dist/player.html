@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Details</title>
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <script src="/scripts/dark-mode.js"></script>
+
+    <style>
+      .player-detail-card {
+        background: var(--color-surface, #fff);
+        border-radius: 1rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 2rem;
+        margin: 2rem 0;
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+        min-height: 300px;
+      }
+      .player-img-large {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--color-primary, #006bb6);
+        background: #eee;
+      }
+      .player-info {
+        flex: 1;
+      }
+      .player-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .player-meta {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      .player-bio {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+      .player-stats-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .player-stats-table th,
+      .player-stats-table td {
+        border: 1px solid #ddd;
+        padding: 0.5rem 1rem;
+        text-align: left;
+      }
+      .player-stats-table th {
+        background: var(--color-primary, #006bb6);
+        color: #fff;
+      }
+      .loading,
+      .error {
+        font-size: 1.2rem;
+        color: #888;
+        padding: 2rem;
+      }
+      .player-detail-card,
+      .player-detail-card * {
+        color: #222 !important;
+      }
+    </style>
+
+    <script type="module" crossorigin src="/assets/player-BkJxrxnJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/reset.css-qamkHA0E.js">
+    <link rel="modulepreload" crossorigin href="/assets/header-DTag00fy.js">
+    <link rel="modulepreload" crossorigin href="/assets/player-card-_f3eTCoQ.js">
+  </head>
+  <body>
+    <mu-auth provides="warriors:auth">
+      <warriors-header>
+        <div class="container">
+          <svg class="icon">
+            <use href="/icons/basketball.svg#icon-player" />
+          </svg>
+          <h1>Player Details</h1>
+        </div>
+      </warriors-header>
+      <warriors-nav></warriors-nav>
+      <main>
+        <div class="container">
+          <section>
+            <div id="player-detail" class="player-detail-card">
+              <div class="loading">Loading player details...</div>
+            </div>
+            <p><a href="players.html">← Back to Roster</a></p>
+          </section>
+        </div>
+      </main>
+    </mu-auth>
+  </body>
+</html>

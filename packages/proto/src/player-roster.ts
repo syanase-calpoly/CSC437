@@ -21,30 +21,35 @@ export class PlayerRoster extends LitElement {
   players: Player[] = [];
 
   override async firstUpdated() {
-  console.log("FirstUpdated called");
-  if (this.src) {
-    const res = await fetch(this.src);
-    if (res.ok) {
-      const json = await res.json();
-      console.log("fetched players:", json);
-      this.players = [...(json as Player[])];  // <-- key change here
-      this.requestUpdate();
+    console.log("FirstUpdated called");
+    if (this.src) {
+      const res = await fetch(this.src);
+      if (res.ok) {
+        const json = await res.json();
+        console.log("fetched players:", json);
+        this.players = [...(json as Player[])]; // <-- key change here
+        this.requestUpdate();
+      }
     }
   }
-}
 
   renderPlayer(p: Player) {
     return html`
       <li>
-        <player-card
-          player-img=${p.playerImg}
-          position=${p.position}
-          number=${p.number}
-          stats=${p.stats}
-          bio=${p.bio}
+        <a
+          href="player.html?playerid=${p.playerid}"
+          style="text-decoration: none; color: inherit;"
         >
-          ${p.name}
-        </player-card>
+          <player-card
+            player-img=${p.playerImg}
+            position=${p.position}
+            number=${p.number}
+            stats=${p.stats}
+            bio=${p.bio}
+          >
+            ${p.name}
+          </player-card>
+        </a>
       </li>
     `;
   }
@@ -57,7 +62,6 @@ export class PlayerRoster extends LitElement {
         <ul>
           ${this.players.map((p) => this.renderPlayer(p))}
         </ul>
-        <p><a href="playerstats.html">View Player Stats →</a></p>
       </section>
     `;
   }
