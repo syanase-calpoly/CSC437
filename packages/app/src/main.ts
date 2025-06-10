@@ -7,6 +7,7 @@ import { HeaderElement } from "./components/header.js";
 import { PlayerRoster } from "./views/players-view.js";
 import { HomeViewElement } from "./views/home-view.js";
 import { AboutViewElement } from "./views/about-view.js";
+import { ProfileEditElement } from "./views/user-edit-view.js";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
   {
   path: "/app/about",
   view: () => html`<about-view></about-view>`
+    },
+  
+    {
+  path: "/app/profile",
+  view: () => html`<profile-edit-view></profile-edit-view>`
     },
   {
     path: "/",
@@ -41,6 +47,7 @@ define({
   "home-view": HomeViewElement,
   "player-view": PlayerRoster,
   "about-view": AboutViewElement,
+  "profile-edit-view": ProfileEditElement,
   
   "mu-switch": class AppSwitch extends Switch.Element {
     constructor() {

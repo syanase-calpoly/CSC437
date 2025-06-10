@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import Players from "./services/player_card-svc";
 import { connect } from "./services/mongo";
 import players from "./routes/players";
+import profiles from "./routes/profiles";
 import auth, { authenticateUser } from "./routes/auth";
 import fs from "node:fs/promises";
 import path from "path";
@@ -15,6 +16,8 @@ const staticDir = process.env.STATIC || "public";
 
 app.use(express.static(staticDir));
 app.use(express.json());
+app.use("/api/profiles", authenticateUser, profiles);
+
 app.use("/api/players", authenticateUser, players);
 app.use("/auth", auth);
 app.use("/app", (req: Request, res: Response) => {

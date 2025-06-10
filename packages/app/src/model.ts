@@ -1,8 +1,10 @@
-import { Player_Card, Credential } from "server/models";
+import { Player_Card, Profile } from "server/models";
 
 export interface Model {
   player?: Player_Card;
-  profile?: Credential;
+  profile?: Profile;
 }
 
 export const init: Model = {};
+
+export type { Profile };
